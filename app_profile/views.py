@@ -3,5 +3,5 @@ from django.http import HttpResponse
 
 
 def employee_list(request):
-    return HttpResponse('hello ronit')
+    return HttpResponse('Hi i am learning aws')
 # Create your views here.
