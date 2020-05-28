@@ -8,6 +8,29 @@ from .models import *
 from . import views
 
 
+@login_required(login_url='login')
+def interest(request):
+    form = InterestForm()
+    if request.method == 'POST':
+        form = InterestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    return render(request, 'ad/interest.html', {'form': form})
+
+
+@login_required(login_url='login')
+def language(request):
+    form = LanguageForm()
+    if request.method == 'POST':
+        form = LanguageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    return render(request, 'ad/language.html', {'form': form})
+
+
+@login_required(login_url='login')
 def info(request):
 
     xxx = Myinfo.objects.get(id=1)

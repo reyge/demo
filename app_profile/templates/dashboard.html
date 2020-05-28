@@ -5,7 +5,7 @@
 <div class="content-wrapper">
         <aside>
             <div class="profile-img-wrapper">
-                <img src="{% static 'assets/images/Profile.png' %}" alt="profile">
+                <img src="{% static 'assets/images/Profilee.png' %}" >
             </div>
             <h1 class="profile-name">{{myinfo.name}}</h1>
             <div class="text-center">
@@ -33,9 +33,10 @@
                 <div class="card-body">
                     <div class="widget-content">
                         <h5 class="widget-title card-title">LANGUAGES</h5>
-                        <p>English : native</p>
-                        <p>Spanish : fluent</p>
-                        <p>Italian : fluent</p>
+                        {% for languages in language %}
+                        <p>{{languages.title}} : {{languages.rate}}</p>
+
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -43,10 +44,10 @@
                 <div class="card-body">
                     <div class="widget-content">
                         <h5 class="widget-title card-title">INTERESTS</h5>
-                        <p>Video games</p>
-                        <p>Finance</p>
-                        <p>Basketball</p>
-                        <p>Theatre</p>
+                        <{% for interests in interest %}
+                        <p>{{interests.title}}</p>
+
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -54,12 +55,7 @@
         <main>
             <section class="intro-section">
                 <h2 class="section-title">Hello, Daisy Murphy!</h2>
-                <p>I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print
-                    media. I enjoy turning complex problems into simple, beautiful and intuitive designs. My job is to
-                    build your website so that it is functional and user-friendly but at the same time attractive.
-                    Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use.
-                    My aim is to bring across your message and identity in the most creative way. I created web design
-                    for many famous brand companies.</p>
+                <p>{{myinfo.content}}</p>
                 <a href="#!" class="btn btn-primary btn-hire-me">HIRE ME</a>
             </section>
             <section class="resume-section">

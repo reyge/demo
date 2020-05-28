@@ -15,3 +15,16 @@ class MyinfoForm(ModelForm):
     class Meta:
         model = Myinfo
         fields = '__all__'
+
+
+class LanguageForm(ModelForm):
+    class Meta:
+        model = Language
+        fields = '__all__'
+
+
+class InterestForm(ModelForm):
+    class Meta:
+        model = Interest
+        fields = '__all__'
+
