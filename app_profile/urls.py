@@ -1,7 +1,14 @@
 # from django.contrib import admin
 from django.urls import path, include
 from . import views
+from . import views_admin
 
 urlpatterns = [
-    path('', views.employee_list, name='employee_list'),
+    path('register/', views_admin.registerPage, name="register"),
+    path('login/', views_admin.loginPage, name="login"),
+    path('logout/', views_admin.logoutUser, name="logout"),
+
+    path('', views.home, name='home'),
+    path('ad/', views_admin.dashboard, name='dashboard'),
+    path('info/', views_admin.info, name='info'),
 ]
