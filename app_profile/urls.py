@@ -13,4 +13,9 @@ urlpatterns = [
     path('info/', views_admin.info, name='info'),
     path('language/', views_admin.language, name='language'),
     path('interest/', views_admin.interest, name='interest'),
+    path('experience/', views_admin.experience, name='experience'),
+
+    path('education/', views_admin.education, name='education'),
+    path('update_education/<int:id>', views_admin.education, name="update_education"),
+
 ]

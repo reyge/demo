@@ -28,3 +28,15 @@ class InterestForm(ModelForm):
         model = Interest
         fields = '__all__'
 
+
+class EducationForm(ModelForm):
+    class Meta:
+        model = Education
+        fields = '__all__'
+
+
+class ExperienceForm(ModelForm):
+    class Meta:
+        model = Experience
+        fields = '__all__'
+

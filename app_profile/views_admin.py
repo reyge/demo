@@ -9,6 +9,45 @@ from . import views
 
 
 @login_required(login_url='login')
+def experience(request):
+    form = ExperienceForm()
+    if request.method == 'POST':
+        form = ExperienceForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    return render(request, 'ad/experience.html', {'form': form})
+
+
+
+
+@login_required(login_url='login')
+def education(request, id=0):
+    if request.method == "GET":
+
+        if id == 0:
+            education = Education.objects.all()
+            form = EducationForm()  # create object form and assign instance of model form
+        else:
+            education = Education.objects.get(pk=id)
+            form = EducationForm(instance=education)
+            education = Education.objects.all()
+        return render(request, 'ad/education.html', {'form': form, 'education': education})
+    else:
+
+        if id == 0:
+            education = Education.objects.all()
+            form = EducationForm(request.POST)
+        else:
+            education = Education.objects.get(pk=id)
+            form = EducationForm(request.POST, instance=education)
+        form.save()
+
+        return redirect('/education')
+
+
+
+@login_required(login_url='login')
 def interest(request):
     form = InterestForm()
     if request.method == 'POST':
