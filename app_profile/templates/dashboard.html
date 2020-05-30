@@ -5,7 +5,7 @@
 <div class="content-wrapper">
         <aside>
             <div class="profile-img-wrapper">
-                <img src="{{myinfo.picture.url}}" >
+                <img src="{% static 'assets/images/Profilee.png' %}" >
             </div>
             <h1 class="profile-name">{{myinfo.name}}</h1>
             <div class="text-center">
@@ -25,10 +25,21 @@
                     <p>PHONE : {{myinfo.phone}}</p>
                     <p>MAIL : {{myinfo.email}}</p>
                     <p>Location : {{myinfo.location}}</p>
-                    <button class="btn btn-download-cv btn-primary rounded-pill"> <img src="{% static 'assets/images/download.svg' %}" alt="download"
-                        class="btn-img">DOWNLOAD CV </button>
+                    <button class="btn btn-download-cv btn-primary rounded-pill"> My Portfolio </button>
                 </div>
             </div>
+                        <div class="widget card">
+                <div class="card-body">
+                    <div class="widget-content">
+                        <h5 class="widget-title card-title">Skills</h5>
+                        {% for s in skills %}
+                        <p>{{s.title}}</p>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
             <div class="widget card">
                 <div class="card-body">
                     <div class="widget-content">
@@ -54,7 +65,7 @@
         </aside>
         <main>
             <section class="intro-section">
-                <h2 class="section-title">Hello, Daisy Murphy!</h2>
+                <h2 class="section-title">Hello!</h2>
                 <p>{{myinfo.content}}</p>
             </section>
             <section class="resume-section">
@@ -92,55 +103,55 @@
                     </div>
                 </div>
             </section>
-<!--            <section class="services-section">-->
-<!--                <h6 class="section-subtitle">WHAT I DO</h6>-->
-<!--                <h2 class="section-title">SERVICES</h2>-->
-<!--                <div class="row">-->
-<!--                    <div class="media service-card col-lg-6">-->
-<!--                        <div class="service-icon">-->
-<!--                            <img src="{% static 'assets/images/001-target.svg' %}" alt="target">-->
-<!--                        </div>-->
-<!--                        <div class="media-body">-->
-<!--                            <h5 class="service-title">web designing</h5>-->
-<!--                            <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed-->
-<!--                                tortor.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="media service-card col-lg-6">-->
-<!--                        <div class="service-icon">-->
-<!--                            <img src="{% static 'assets/images/003-idea.svg' %}" alt="bulb">-->
-<!--                        </div>-->
-<!--                        <div class="media-body">-->
-<!--                            <h5 class="service-title">Graphic design</h5>-->
-<!--                            <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed-->
-<!--                                tortor.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="media service-card col-lg-6">-->
-<!--                        <div class="service-icon">-->
-<!--                            <img src="{% static 'assets/images/002-development.svg' %}" alt="development">-->
-<!--                        </div>-->
-<!--                        <div class="media-body">-->
-<!--                            <h5 class="service-title">Development</h5>-->
-<!--                            <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed-->
-<!--                                tortor.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="media service-card col-lg-6">-->
-<!--                        <div class="service-icon">-->
-<!--                            <img src="{% static 'assets/images/004-smartphone.svg' %}" alt="smartphone">-->
-<!--                        </div>-->
-<!--                        <div class="media-body">-->
-<!--                            <h5 class="service-title">Mobile design</h5>-->
-<!--                            <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed-->
-<!--                                tortor.-->
-<!--                            </p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </section>-->
+            <section class="services-section">
+                <h6 class="section-subtitle">WHAT I DO</h6>
+                <h2 class="section-title">SERVICES</h2>
+                <div class="row">
+                    <div class="media service-card col-lg-6">
+                        <div class="service-icon">
+                            <img src="{% static 'assets/images/001-target.svg' %}" alt="target">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="service-title">web designing</h5>
+                            <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
+                                tortor.</p>
+                        </div>
+                    </div>
+                    <div class="media service-card col-lg-6">
+                        <div class="service-icon">
+                            <img src="{% static 'assets/images/003-idea.svg' %}" alt="bulb">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="service-title">Graphic design</h5>
+                            <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
+                                tortor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media service-card col-lg-6">
+                        <div class="service-icon">
+                            <img src="{% static 'assets/images/002-development.svg' %}" alt="development">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="service-title">Development</h5>
+                            <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
+                                tortor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="media service-card col-lg-6">
+                        <div class="service-icon">
+                            <img src="{% static 'assets/images/004-smartphone.svg' %}" alt="smartphone">
+                        </div>
+                        <div class="media-body">
+                            <h5 class="service-title">Mobile design</h5>
+                            <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
+                                tortor.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="testimonial-section">
                 <div id="testimonialCarousel" class="testimonial-carousel carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
