@@ -8,17 +8,50 @@ from .models import *
 from . import views
 
 
+
 @login_required(login_url='login')
-def experience(request):
-    form = ExperienceForm()
+def delete_experience(request):
     if request.method == 'POST':
-        form = ExperienceForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    return render(request, 'ad/experience.html', {'form': form})
+
+        id = request.POST.get('del_a')
+        experience = Experience.objects.get(pk=id)
+        experience.delete()
+        return redirect('/experience')
 
 
+@login_required(login_url='login')
+def experience(request, id=0):
+    if request.method == "GET":
+
+        if id == 0:
+            experience = Experience.objects.all()
+            form = ExperienceForm()  # create object form and assign instance of model form
+        else:
+            experience= Experience.objects.get(pk=id)
+            form = ExperienceForm(instance=experience)
+            experience= Experience.objects.all()
+        return render(request, 'ad/experience.html', {'form': form, 'experience': experience})
+    else:
+
+        if id == 0:
+            form = ExperienceForm(request.POST)
+        else:
+            experience= Experience.objects.get(pk=id)
+            form = ExperienceForm(request.POST, instance=experience)
+        form.save()
+
+        return redirect('/experience')
+
+
+
+@login_required(login_url='login')
+def delete_education(request):
+    if request.method == 'POST':
+
+        id = request.POST.get('del_a')
+        education = Education.objects.get(pk=id)
+        education.delete()
+        return redirect('/education')
 
 
 @login_required(login_url='login')
@@ -76,7 +109,7 @@ def info(request):
     form = MyinfoForm(instance=xxx)
 
     if request.method == 'POST':
-        form = MyinfoForm(request.POST, instance=xxx)
+        form = MyinfoForm(request.POST, request.FILES, instance=xxx)
         if form.is_valid():
             form.save()
             return redirect('/')

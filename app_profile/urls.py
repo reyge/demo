@@ -14,8 +14,11 @@ urlpatterns = [
     path('language/', views_admin.language, name='language'),
     path('interest/', views_admin.interest, name='interest'),
     path('experience/', views_admin.experience, name='experience'),
+    path('update_experience/<int:id>', views_admin.experience, name='update_experience'),
+    path('delete_experience/', views_admin.delete_experience, name='delete_experience'),
 
     path('education/', views_admin.education, name='education'),
     path('update_education/<int:id>', views_admin.education, name="update_education"),
+    path('delete_education/', views_admin.delete_education, name="delete_education"),
 
 ]

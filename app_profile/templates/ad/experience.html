@@ -5,9 +5,12 @@
 <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Interesta Update</h1>
+                        <h1 class="mt-4">Education Update</h1>
 
-                        <div class="card mb-4">
+                        <div class="row">
+                            <div class="col-5">
+                                <br>
+                                <div class="card mb-4">
                             <div class="card-header">
                                 <form action="" method="POST">
                                     {% csrf_token %}
@@ -15,8 +18,51 @@
                                     <input type="submit">
                                 </form>
                             </div>
-                        </div>
                     </div>
+
+                            </div>
+                            <div class="col-7">
+                                                            <div class="card-body">
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Post</th>
+      <th scope="col">Company</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for edu in experience %}
+  <tr>
+      <th scope="row">{{edu.id}}</th>
+      <td>{{edu.start_date}}</td>
+      <td>{{edu.finish_date}}</td>
+      <td>{{edu.post}}</td>
+      <td>{{edu.company}}</td>
+      <td>
+          <a href="{% url 'update_experience' edu.id %}" class="btn text-secondary px-0" > <i class="far fa-edit fa-lg"></i>
+      </a>
+       <form action="{% url 'delete_experience' %}" method="POST" class="d-inline">
+                {% csrf_token %}
+                <input type="text" value="{{ edu.id }}" name="del_a" hidden="True">
+                <button type="submit" class="btn">
+                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                </button>
+
+            </form>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+                        </div>
+
+                            </div>
+                        </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
