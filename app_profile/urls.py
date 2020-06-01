@@ -9,6 +9,9 @@ urlpatterns = [
     path('logout/', views_admin.logoutUser, name="logout"),
 
     path('', views.home, name='home'),
+    path('portfolio/', views.portfolio, name='portfolio'),
+
+
     path('ad/', views_admin.dashboard, name='dashboard'),
     path('info/', views_admin.info, name='info'),
     path('language/', views_admin.language, name='language'),

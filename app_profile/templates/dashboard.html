@@ -2,67 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="content-wrapper">
-        <aside>
-            <div class="profile-img-wrapper">
-                <img src="{% static 'assets/images/Profilee.png' %}" >
-            </div>
-            <h1 class="profile-name">{{myinfo.name}}</h1>
-            <div class="text-center">
-                <span class="badge badge-white badge-pill profile-designation">{{myinfo.post}}</span>
-            </div>
-            <nav class="social-links">
-                <a href="{{myinfo.fb}}" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="{{myinfo.instagram}}" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="{{myinfo.linkedin}}" class="social-link"><i class="fab fa-linkedin"></i></a>
 
-            </nav>
-            <div class="widget">
-                <h5 class="widget-title">Personal Information</h5>
-                <div class="widget-content">
-                    <p>BIRTHDAY : {{myinfo.dob}}</p>
-
-                    <p>PHONE : {{myinfo.phone}}</p>
-                    <p>MAIL : {{myinfo.email}}</p>
-                    <p>Location : {{myinfo.location}}</p>
-                    <button class="btn btn-download-cv btn-primary rounded-pill"> My Portfolio </button>
-                </div>
-            </div>
-                        <div class="widget card">
-                <div class="card-body">
-                    <div class="widget-content">
-                        <h5 class="widget-title card-title">Skills</h5>
-                        {% for s in skill %}
-                        <p>{{s.title}}</p>
-
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-
-            <div class="widget card">
-                <div class="card-body">
-                    <div class="widget-content">
-                        <h5 class="widget-title card-title">LANGUAGES</h5>
-                        {% for languages in language %}
-                        <p>{{languages.title}} : {{languages.rate}}</p>
-
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            <div class="widget card">
-                <div class="card-body">
-                    <div class="widget-content">
-                        <h5 class="widget-title card-title">INTERESTS</h5>
-                        {% for interests in interest %}
-                        <p>{{interests.title}}</p>
-
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </aside>
         <main>
             <section class="intro-section">
                 <h2 class="section-title">Hello!</h2>
@@ -125,5 +65,5 @@
 
             <footer>Live Resume @ <a href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer">BootstrapDash</a>. All Rights Reserved 2020</footer>
         </main>
-    </div>
+
 {% endblock content %}
